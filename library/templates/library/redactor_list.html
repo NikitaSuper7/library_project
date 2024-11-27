@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма модели редактора</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4">Список Redactor</h2>
+        <div class="col-4">
+<!--            Для того, чтобы задать корректный маршрут нам нужно указывать его по форме namespace:name_view(хранится в url)-->
+            <a href="{% url 'library:redactor_create' %}" class="btn btn-primary"> Создать нового редактора </a>
+            <ul class="list-group">
+                {% for redact in redactormodel %}
+                <li class="list-group-item">
+                    <a href="{% url 'library:redactor_detail' redact.pk %}"> {{redact.name}}</a>
+                    <a href="{% url 'library:redactor_update' redact.pk %}" class="btn btn-secondary"> Редактировать </a>
+                    <a href="{% url 'library:redactor_delete' redact.pk %}" class="btn btn-danger"> Удалить </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+</html>

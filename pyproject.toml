@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "django-practice-orm"
+version = "0.1.0"
+description = ""
+authors = ["Lysenko Nikita <nike7cr77@ya.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.2"
+psycopg2 = "^2.9.9"
+python-dotenv = "^1.0.1"
+ipython = "^8.28.0"
+pillow = "^11.0.0"
+redis = "^5.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

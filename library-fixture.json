@@ -1,0 +1,65 @@
+[
+{
+    "model": "library.author",
+    "pk": 1,
+    "fields": {
+        "first_name": "nikita",
+        "last_name": "lysenko",
+        "birth_date": "1996-02-13"
+    }
+},
+{
+    "model": "library.author",
+    "pk": 2,
+    "fields": {
+        "first_name": "Nikita",
+        "last_name": "Lysenko",
+        "birth_date": "1996-02-13"
+    }
+},
+{
+    "model": "library.author",
+    "pk": 3,
+    "fields": {
+        "first_name": "Alina",
+        "last_name": "Elnikova",
+        "birth_date": "1989-07-10"
+    }
+},
+{
+    "model": "library.author",
+    "pk": 4,
+    "fields": {
+        "first_name": "Youjin",
+        "last_name": "Crabs",
+        "birth_date": "1830-02-13"
+    }
+},
+{
+    "model": "library.book",
+    "pk": 1,
+    "fields": {
+        "title": "Как стать сеньором в ПА",
+        "publication_date": "2024-10-12",
+        "author": 2
+    }
+},
+{
+    "model": "library.book",
+    "pk": 2,
+    "fields": {
+        "title": "Астрология и как она тебе поможет",
+        "publication_date": "1990-10-01",
+        "author": 3
+    }
+},
+{
+    "model": "library.book",
+    "pk": 4,
+    "fields": {
+        "title": "crasty_rabs",
+        "publication_date": "1840-09-11",
+        "author": 4
+    }
+}
+]

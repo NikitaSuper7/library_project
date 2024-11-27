@@ -1,0 +1,15 @@
+{% extends 'library/base.html' %}
+
+{% block title%} Список авторов {% endblock %}
+
+{% block content %}
+{% include 'library/header.html' %}
+<h2 class="mt-4">Список авторов</h2>
+    <ul class="list-group mb-5">
+        {% for author in authors %}
+            <li class="list-group-item mr-4">
+                {{ author.first_name | title }} {{ author.last_name | title }}
+        {% endfor %}
+
+    </ul>
+{% endblock %}

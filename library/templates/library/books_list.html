@@ -1,0 +1,16 @@
+{% extends 'library/base.html' %}
+
+{% block title%} Список книг {% endblock %}
+
+{% block content %}
+{% include 'library/header.html' %}
+<h2 class="mt-4">Список книг</h2>
+    <ul class="list-group mb-5">
+        {% for book in books %}
+            <li class="list-group-item mr-4">
+                <a href="{% url 'library:book_detail' book.pk %}">{{ book.title }}</a> - {{ book.publication_date | date:"d.m.Y" }} - {{ book.author.last_name}} {{ book.author.first_name }}
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
