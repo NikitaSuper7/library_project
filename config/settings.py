@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.getenv('DEBUG') == 'True' else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*'] # Открываем доступ ко всем хостам
 
 # Application definition
 
@@ -121,6 +121,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # добавляем для корректной работы docker-compose.yml
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -134,7 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  # формат значения - 'redis://номер хоста:номер порта/номер БД'
+        'LOCATION': 'redis://redis:6379/1',  # Формат значения - 'redis://номер хоста:номер порта/номер БД'
+        # Когда мы добавляем докер, то номер хоста мы заменяем на "redis", т.к. именно так называется наш сервис в docker-compose
     }
 }
 

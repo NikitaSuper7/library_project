@@ -88,7 +88,7 @@ class RedactorDeleteView(LoginRequiredMixin, DeleteView):
 
 
 @method_decorator(cache_page(16 * 15), name='dispatch')
-class BooksListView(PermissionRequiredMixin, ListView):
+class BooksListView(ListView):
     model = Book
     template_name = 'library/books_list.html'
     context_object_name = 'books'
@@ -148,13 +148,6 @@ class AuthorListView(ListView):
     template_name = 'library/authors_list.html'
     context_object_name = 'authors'
 
-
-class AuthorCreateView(LoginRequiredMixin, CreateView):
-    model = Author
-    form_class = AuthorForm
-    template_name = 'library/author_form.html'
-    success_url = reverse_lazy('library:authors_list')
-
     def get_queryset(self):
         queryset = cache.get('authors_queryset')
 
@@ -164,23 +157,15 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
         return queryset
 
 
-class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+class AuthorCreateView(LoginRequiredMixin, CreateView):
     model = Author
     form_class = AuthorForm
     template_name = 'library/author_form.html'
     success_url = reverse_lazy('library:authors_list')
 
-# def books_list(request):
-#     books = Book.objects.all()
-#     context = {
-#         "books": books,
-#     }
-#     return render(request, 'library/books_list.html', context=context)
-#
-#
-# def books_detail(request, book_id):
-#     book = Book.objects.get(id=book_id)
-#     context = {
-#         'book': book
-#     }
-#     return render(request, template_name='library/book_detail.html', context=context)
+
+class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+    model = Author
+    form_class = AuthorForm
+    template_name = 'library/author_form.html'
+    success_url = reverse_lazy('library:authors_list')
