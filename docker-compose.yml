@@ -25,7 +25,7 @@ services:
       - web
 
   db:
-    image: postgresql:latest
+    image: postgres:latest
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
