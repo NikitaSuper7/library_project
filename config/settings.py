@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import sys
 
 from dotenv import load_dotenv
 import os
@@ -138,7 +139,8 @@ CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": "redis://redis:6379/1",  # Формат значения - 'redis://номер хоста:номер порта/номер БД'
-        # Когда мы добавляем докер, то номер хоста мы заменяем на "redis", т.к. именно так называется наш сервис в docker-compose
+        # Когда мы добавляем докер, то номер хоста мы заменяем на "redis",
+        # т.к. именно так называется наш сервис в docker-compose
     }
 }
 
@@ -165,5 +167,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Переменная для перенаправления пользователей после login на сайте
 LOGIN_REDIRECT_URL = "library:books_list"
-# Переменная для перенаправления пользователя, если он не зарегестрирован и пытается получить доступ к ограниченному функционалу.
+# Переменная для перенаправления пользователя,
+# если он не зарегестрирован и пытается получить доступ к ограниченному функционалу.
 LOGIN_URL = "users:login"

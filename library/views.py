@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from library.models import Book, Author, Redactor
 from .forms import BookForm, AuthorForm
 from .services import BookServices
@@ -92,7 +92,8 @@ class BooksListView(ListView):
     model = Book
     template_name = "library/books_list.html"
     context_object_name = "books"
-    permission_required = "library.view_book"  # Разрешаем просматривать только тем пользователям у кого есть разрешение на просмотр
+    permission_required = "library.view_book"  # Разрешаем просматривать только тем пользователям
+    # у кого есть разрешение на просмотр
 
     # Переопределяем метод get_queryset() и возвращаем только те книги, дата издания которых > 2000
     def get_queryset(self):
