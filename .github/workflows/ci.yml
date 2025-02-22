@@ -48,6 +48,7 @@ jobs:
     - name: Run tests
       env:
         EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+        NAME: ${{ secrets.POSTGRES_DB }}
       run: python manage.py test
 
   build:
