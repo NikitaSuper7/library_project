@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-import sys
+# import sys
 
 from dotenv import load_dotenv
 import os
@@ -144,13 +144,13 @@ CACHES = {
     }
 }
 
-if "tests" in sys.argv:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
+# if "tests" in sys.argv:
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": "django.db.backends.sqlite3",
+#             "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#         }
+#     }
 
 # Кастомная модель пользователя
 AUTH_USER_MODEL = "users.CustomUser"
@@ -171,6 +171,6 @@ LOGIN_REDIRECT_URL = "library:books_list"
 # если он не зарегестрирован и пытается получить доступ к ограниченному функционалу.
 LOGIN_URL = "users:login"
 
-# if __name__ == "__main__":
-#     EMAIL_PORT = int(os.getenv("EMAIL_PORT"))
-#     print(EMAIL_PORT)
+if __name__ == "__main__":
+    # db = os.path.join(BASE_DIR, "db.sqlite3")
+    print(os.path.join(BASE_DIR, "db.sqlite3"))
