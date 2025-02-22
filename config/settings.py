@@ -170,3 +170,7 @@ LOGIN_REDIRECT_URL = "library:books_list"
 # Переменная для перенаправления пользователя,
 # если он не зарегестрирован и пытается получить доступ к ограниченному функционалу.
 LOGIN_URL = "users:login"
+
+# if __name__ == "__main__":
+#     EMAIL_PORT = int(os.getenv("EMAIL_PORT"))
+#     print(EMAIL_PORT)

@@ -46,6 +46,8 @@ jobs:
 #      run: python manage.py migrate
 
     - name: Run tests
+      env:
+        EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
       run: python manage.py test
 
   build:
